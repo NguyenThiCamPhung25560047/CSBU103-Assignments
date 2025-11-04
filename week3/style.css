@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Nguyễn Thị Cẩm Phụng</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #e0f7fa, #ffffff);
+            color: #333;
+            line-height: 1.6;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+        header {
+            max-width: 1000px;
+            margin: 30px auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #0077b6;
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-left img {
+            border-radius: 50%;
+            width: 160px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .profile-left img:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+        }
+
+        .profile-right {
+            flex: 1;
+            padding-left: 40px;
+        }
+
+        .profile-right h1 {
+            font-size: 2.4em;
+            margin-bottom: 5px;
+        }
+
+        .profile-right p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+        main {
+            max-width: 1000px;
+            margin: 0 auto 30px auto;
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+            animation: slideUp 1.2s ease;
+        }
+
+        @keyframes slideUp {
+            from {opacity: 0; transform: translateY(40px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        section {
+            margin-bottom: 25px;
+        }
+
+        section h2 {
+            color: #0077b6;
+            border-left: 5px solid #00b4d8;
+            padding-left: 10px;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        section h2:hover {
+            color: #023e8a;
+        }
+
+        ul {
+            list-style-type:circle;
+            padding-left: 10px;
+        }
+
+        li {
+            padding: 6px 0;
+        }
+
+        article {
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            background: #f8f9fa;
+            border-left: 4px solid #00b4d8;
+            border-radius: 8px;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        article:hover {
+            background: #e8f7ff;
+            transform: translateX(5px);
+        }
+
+        aside {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #f0f8ff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        aside h2 {
+            color: #0096c7;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 15px 0;
+            color: #555;
+            font-size: 0.9em;
+        }
+
+        ul li strong {
+            color: #023e8a;
+            transition: color 0.3s ease;
+        }
+
+        ul li:hover strong {
+            color: #0077b6;
+        }
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .profile-right {
+                padding-left: 0;
+                margin-top: 15px;
+            }
+            .profile-left img {
+                width: 130px;
+            }
+            main, aside {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="profile-left">
+            <img src="anh.jpg" alt= "Ảnh đại diện">
+        </div>
+        <div class="profile-right">
+            <h1>Nguyễn Thị Cẩm Phụng</h1>
+            <p><strong>Sinh viên Khoa học máy tính</strong></p>
+            
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <h2>Thông tin liên hệ</h2>
+            <ul>
+                <li><strong>Số điện thoại:</strong> 0977648910</li>
+                <li><strong>Email:</strong> 25560047@gm.uit.edu.vn</li>
+                <li><strong>Ngày sinh:</strong> 27/08/2007</li>
+                <li><strong>Địa chỉ:</strong> Dĩ An, TP.HCM</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Mục tiêu nghề nghiệp</h2>
+            <p>
+                Tôi mong muốn trở thành một Web Developer chuyên nghiệp, có thể thiết kế và phát triển
+                các trang web sáng tạo, tối ưu trải nghiệm người dùng. 
+                Tôi đang nỗ lực học hỏi không ngừng để phát triển bản thân và đóng góp tích cực cho các dự án thực tế.
+            </p>
+        </section>
+
+        <section>
+            <h2>Học vấn</h2>
+            <article>
+                <h3>Trường THPT Dĩ An (2022–2025)</h3>
+            </article>
+
+            <article>
+                <h3>Trường Đại học Công Nghệ Thông Tin – ĐHQG TP.HCM (2025–nay)</h3>
+                <p>Ngành học: Khoa học máy tính</p>
+            </article>
+        </section>
+
+        <section>
+            <h2>Kỹ năng</h2>
+            <ul>
+                <li>HTML, CSS, JavaScript cơ bản</li>
+                <li>Kỹ năng giao tiếp</li>
+                <li>Khả năng làm việc nhóm</li>
+                <li>Tư duy logic và học hỏi nhanh</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Kinh nghiệm học tập & Dự án</h2>
+            <article>
+                <h3>Dự án cá nhân: Website giới thiệu bản thân</h3>
+                <ul>
+                    <li>HTML, CSS và JavaScript để xây dựng trang CV cá nhân.</li>
+                    <li>Áp dụng kiến thức được học để thiết kế CV.</li>
+                </ul>
+            </article>
+
+            <article>
+                <h3>Dự án nhóm: Thiết kế website Bakeology</h3>
+                <ul>
+                    <li>Thiết kế giao diện website tiệm bánh “Bakeology”.</li>
+                    <li>Sử dụng HTML, CSS, JavaScript để tạo hiệu ứng động và menu tương tác.</li>
+                </ul>
+            </article>
+        </section>
+
+        <section>
+            <h2>Trình độ ngoại ngữ</h2>
+            <p>IELTS 5.5</p>
+        </section>
+    </main>
+
+    <aside>
+        <h2>Thông tin thêm</h2>
+        <p>Hiện đang học tại Trường Đại học Công Nghệ Thông Tin – ĐHQG TP.HCM.</p>
+        <p>Mong muốn phát triển bản thân trong lĩnh vực lập trình web và UI/UX.</p>
+    </aside>
+
+    <footer>
+        <p>© 2025 Nguyễn Thị Cẩm Phụng | Sinh viên UIT - Khoa học máy tính</p>
+    </footer>
+</body>
+</html>
