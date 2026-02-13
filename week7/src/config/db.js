@@ -1,8 +1,15 @@
 const mongoose = require("mongoose");
 
-const connectDB = async () => {
-  await mongoose.connect("mongodb://127.0.0.1:27017/week7_db");
-  console.log("MongoDB connected");
-};
+mongoose.connect("mongodb://127.0.0.1:27017/week7", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
-module.exports = connectDB;
+const db = mongoose.connection;
+
+db.on("error", console.error.bind(console, "MongoDB connection error:"));
+db.once("open", () => {
+  console.log("✅ MongoDB connected");
+});
+
+module.exports = db;
