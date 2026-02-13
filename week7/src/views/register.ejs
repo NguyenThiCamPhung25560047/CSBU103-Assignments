@@ -3,13 +3,44 @@
 <head>
   <title>Register</title>
   <link rel="stylesheet" href="/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-  <h2>Register</h2>
-  <form action="/register" method="post">
-    <input type="email" name="email" placeholder="Email" required><br>
-    <input type="password" name="password" placeholder="Password" required><br>
-    <button type="submit">Register</button>
-  </form>
+
+<h2>User Registration</h2>
+
+<form id="registerForm" method="POST" action="/register">
+  <input type="text" name="email" id="email" placeholder="Email"><br>
+  <input type="password" name="password" id="password" placeholder="Password"><br>
+  <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password"><br>
+  <button type="submit">Register</button>
+</form>
+
+<p style="color:red;"><%= message %></p>
+
+<script>
+$("#registerForm").submit(function(e){
+  let email = $("#email").val();
+  let pass = $("#password").val();
+  let confirm = $("#confirmPassword").val();
+
+  let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  let passRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])/;
+
+  if(!emailRegex.test(email)){
+    alert("Invalid email format");
+    e.preventDefault();
+  }
+  else if(pass.length < 6 || !passRegex.test(pass)){
+    alert("Password must be at least 6 chars and contain number & special char");
+    e.preventDefault();
+  }
+  else if(pass !== confirm){
+    alert("Passwords do not match");
+    e.preventDefault();
+  }
+});
+</script>
+
 </body>
 </html>
