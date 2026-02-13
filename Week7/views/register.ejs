@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+<h2>User Registration</h2>
+
+<form id="registerForm" method="POST" action="/register">
+    <label>Email:</label><br>
+    <input type="text" id="email" name="email"><br><br>
+
+    <label>Password:</label><br>
+    <input type="password" id="password" name="password"><br><br>
+
+    <label>Confirm Password:</label><br>
+    <input type="password" id="confirmPassword" name="confirmPassword"><br><br>
+
+    <button type="submit">Register</button>
+</form>
+
+<p id="error" style="color:red;"></p>
+
+<script>
+$(function () {
+    $("#registerForm").submit(function (e) {
+        let email = $("#email").val();
+        let password = $("#password").val();
+        let confirm = $("#confirmPassword").val();
+
+        let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        let passwordRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*]).{6,}$/;
+
+        if (!emailRegex.test(email)) {
+            $("#error").text("Invalid email format");
+            e.preventDefault();
+            return;
+        }
+
+        if (!passwordRegex.test(password)) {
+            $("#error").text("Password must be at least 6 characters and contain 1 number and 1 special character");
+            e.preventDefault();
+            return;
+        }
+
+        if (password !== confirm) {
+            $("#error").text("Password and Confirm Password must be the same");
+            e.preventDefault();
+            return;
+        }
+    });
+});
+</script>
+</body>
+</html>
