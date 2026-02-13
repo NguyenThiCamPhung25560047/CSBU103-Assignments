@@ -16,6 +16,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "src/public")));
 
 app.use("/", userRoutes);
+app.get('/', (req, res) => {
+  res.redirect('/login');
+});
+
 
 app.listen(3000, () => {
   console.log("Server running at http://localhost:3000");
