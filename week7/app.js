@@ -1,19 +1,13 @@
 const express = require("express");
-const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const path = require("path");
+
+// connect DB here
+require("./src/config/db");
 
 const userRoutes = require("./src/routes/user");
 
 const app = express();
-
-// MongoDB connection
-mongoose.connect("mongodb://127.0.0.1:27017/week7", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
-.then(() => console.log("MongoDB connected"))
-.catch(err => console.log(err));
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "src/views"));
