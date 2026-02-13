@@ -2,29 +2,39 @@ const User = require("../models/User");
 const bcrypt = require("bcrypt");
 
 exports.showRegister = (req, res) => {
-  res.render("register");
-};
-
-exports.showLogin = (req, res) => {
-  res.render("login");
+  res.render("register", { message: null });
 };
 
 exports.register = async (req, res) => {
-  const { email, password } = req.body;
-  const hash = await bcrypt.hash(password, 10);
+  const { email, password, confirmPassword } = req.body;
 
-  await User.create({ email, password: hash });
-  res.send("Register success");
-};
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const passRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])/;
 
-exports.login = async (req, res) => {
-  const { email, password } = req.body;
-  const user = await User.findOne({ email });
+  if (!emailRegex.test(email)) {
+    return res.render("register", { message: "Invalid email format" });
+  }
 
-  if (!user) return res.send("User not found");
+  if (password.length < 6 || !passRegex.test(password)) {
+    return res.render("register", { message: "Password must be 6 chars, include number & special char" });
+  }
 
-  const match = await bcrypt.compare(password, user.password);
-  if (!match) return res.send("Wrong password");
+  if (password !== confirmPassword) {
+    return res.render("register", { message: "Passwords do not match" });
+  }
 
-  res.send("Login success");
+  try {
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const newUser = new User({
+      email: email,
+      password: hashedPassword
+    });
+
+    await newUser.save();
+    res.render("register", { message: "Register success!" });
+
+  } catch (err) {
+    res.render("register", { message: "User already exists!" });
+  }
 };
